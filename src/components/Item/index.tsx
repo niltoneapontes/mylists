@@ -18,7 +18,7 @@ export function Item({ type, text, onPress, trailingIcon, secondTrailingIcon, tr
   return (
     <TouchableOpacity style={styles.container} onPress={onPress} disabled={type === 'list-item'}>
         <View style={styles.textContainer}>
-          {type === 'list-item' && <Checkbox style={styles.checkbox} value={false} onValueChange={() => {}} />}
+          {type === 'list-item' && <Checkbox style={styles.checkbox} value={false} onValueChange={onPress} />}
           <Text style={styles.content}>{text}</Text>
         </View>
         <View style={styles.iconsContainer}>
