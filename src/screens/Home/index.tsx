@@ -13,7 +13,15 @@ export function Home() {
     <View style={{ flex: 1, width: '100%', backgroundColor: '#212029' }}>
         <View style={{ flex: 1, width: '100%', padding: 16, paddingTop: 100, backgroundColor: '#212029' }}>
             <Title>Minhas listas</Title>
-            <Item>Lista de compras</Item>
+            <Item
+                text='Lista de compras'
+                type='list'
+                onPress={() => {}}
+                trailingIcon='edit-2'
+                trailingIconAction={() => {}}
+                secondTrailingIcon='trash-2'
+                secondTrailingIconAction={() => {}}
+            />
             <FloatingButton 
                 onPress={() => setShowBottomSheet(true)}
                 icon={<FeatherIcons name='plus' size={32}/>}

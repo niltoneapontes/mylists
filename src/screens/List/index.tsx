@@ -11,7 +11,15 @@ export function List() {
     <View style={{ flex: 1, width: '100%', backgroundColor: '#212029' }}>
         <View style={{ flex: 1, width: '100%', padding: 16, paddingTop: 100, backgroundColor: '#212029' }}>
             <Title>Lista de Compras</Title>
-            <Item>Batata</Item>
+            <Item
+                text='Batata'
+                type='list-item'
+                onPress={() => {}}
+                trailingIcon='edit-2'
+                trailingIconAction={() => {}}
+                secondTrailingIcon='trash-2'
+                secondTrailingIconAction={() => {}}
+            />
             <FloatingButton 
                 onPress={() => {}}
                 icon={<FeatherIcons name='plus' size={32}/>}
@@ -21,6 +29,7 @@ export function List() {
             buttonText='Adicionar'
             title='Novo item'
             inputPlaceholder='Insira seu texto aqui...'
+            closeAction={() => {}}
         />
     </View>
   )
