@@ -1,11 +1,12 @@
 import React from 'react'
 import { Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Title } from '../../components/Title'
 
 export default function Home() {
   return (
     <View style={{ flex: 1, width: '100%', backgroundColor: '#212029' }}>
         <View style={{ flex: 1, width: '100%', padding: 16, paddingTop: 100, backgroundColor: '#212029' }}>
-            <Text style={{ fontWeight: 'bold', fontSize: 32, color: '#FFFFFF', marginBottom: 24 }}>Minhas listas</Text>
+            <Title>Minhas listas</Title>
             <View style={{ width: '100%', height: 52, backgroundColor: '#2B2A33', justifyContent: 'center', padding: 16, borderRadius: 8 }}>
                 <Text style={{ fontWeight: 'regular', fontSize: 20, lineHeight: 20, color: '#FFFFFF' }}>Lista de compras</Text>
             </View>
