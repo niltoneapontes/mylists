@@ -11,9 +11,16 @@ export function List() {
         <View style={{ flex: 1, width: '100%', padding: 16, paddingTop: 100, backgroundColor: '#212029' }}>
             <Title>Lista de Compras</Title>
             <Item>Batata</Item>
-            <FloatingButton>+</FloatingButton>
+            <FloatingButton 
+                onPress={() => {}}
+                label='+'
+            />
         </View>
-        <BottomSheet>Adicionar</BottomSheet>
+        <BottomSheet
+            buttonText='Adicionar'
+            title='Novo item'
+            inputPlaceholder='Insira seu texto aqui...'
+        />
     </View>
   )
 }
