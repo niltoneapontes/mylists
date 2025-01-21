@@ -4,13 +4,13 @@ import { styles } from './styles'
 
 interface FloatingButtonProps extends TextProps {
     onPress: () => void;
-    label: string;
+    icon: React.JSX.Element;
 }
 
-export function FloatingButton({ onPress, label }: FloatingButtonProps) {
+export function FloatingButton({ onPress, icon }: FloatingButtonProps) {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-        <Text style={styles.content}>{label}</Text>
+        {icon}
     </TouchableOpacity>
   )
 }

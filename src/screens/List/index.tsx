@@ -1,9 +1,10 @@
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import React from 'react'
 import { Title } from '../../components/Title'
 import { Item } from '../../components/Item'
 import { FloatingButton } from '../../components/FloatingButton'
 import BottomSheet from '../../components/BottomSheet'
+import FeatherIcons from '@expo/vector-icons/Feather'
 
 export function List() {
   return (
@@ -13,7 +14,7 @@ export function List() {
             <Item>Batata</Item>
             <FloatingButton 
                 onPress={() => {}}
-                label='+'
+                icon={<FeatherIcons name='plus' size={32}/>}
             />
         </View>
         <BottomSheet
