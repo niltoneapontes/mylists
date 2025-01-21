@@ -2,6 +2,7 @@ import { Text, TextProps, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { styles } from './styles'
 import FeatherIcons from '@expo/vector-icons/Feather'
+import Checkbox from 'expo-checkbox';
 
 interface ItemProps extends TextProps {
   type: 'list' | 'list-item';
@@ -15,8 +16,11 @@ interface ItemProps extends TextProps {
 
 export function Item({ type, text, onPress, trailingIcon, secondTrailingIcon, trailingIconAction, secondTrailingIconAction }: ItemProps) {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
-        <Text style={styles.content}>{text}</Text>
+    <TouchableOpacity style={styles.container} onPress={onPress} disabled={type === 'list-item'}>
+        <View style={styles.textContainer}>
+          {type === 'list-item' && <Checkbox style={styles.checkbox} value={false} onValueChange={() => {}} />}
+          <Text style={styles.content}>{text}</Text>
+        </View>
         <View style={styles.iconsContainer}>
           {trailingIcon && 
           <TouchableOpacity onPress={trailingIconAction} style={styles.icon}>
