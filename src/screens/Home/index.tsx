@@ -5,18 +5,24 @@ import { Item } from '../../components/Item'
 import { FloatingButton } from '../../components/FloatingButton'
 import BottomSheet from '../../components/BottomSheet'
 import FeatherIcons from '@expo/vector-icons/Feather'
+import { useNavigation } from '@react-navigation/native'
 
 export function Home() {
   const [showBottomSheet, setShowBottomSheet] = useState(false)
+  const navigation = useNavigation<any>()
 
   return (
     <View style={{ flex: 1, width: '100%', backgroundColor: '#212029' }}>
         <View style={{ flex: 1, width: '100%', padding: 16, paddingTop: 40, backgroundColor: '#212029' }}>
-            <Title>Minhas listas</Title>
+            <View style={{ marginBottom: 24 }}>
+                <Title>Minhas listas</Title>
+            </View>
             <Item
                 text='Lista de compras'
                 type='list'
-                onPress={() => {}}
+                onPress={() => {
+                    navigation.navigate("List")
+                }}
                 trailingIcon='edit-2'
                 trailingIconAction={() => {}}
                 secondTrailingIcon='trash-2'
