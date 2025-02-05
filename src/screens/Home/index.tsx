@@ -11,7 +11,7 @@ export function Home() {
 
   return (
     <View style={{ flex: 1, width: '100%', backgroundColor: '#212029' }}>
-        <View style={{ flex: 1, width: '100%', padding: 16, paddingTop: 100, backgroundColor: '#212029' }}>
+        <View style={{ flex: 1, width: '100%', padding: 16, paddingTop: 40, backgroundColor: '#212029' }}>
             <Title>Minhas listas</Title>
             <Item
                 text='Lista de compras'

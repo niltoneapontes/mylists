@@ -1,13 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { Home } from './src/screens/Home';
+import { List } from './src/screens/List';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Home></Home>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView 
+        style={{
+          flex: 1,
+          backgroundColor: '#212029',
+        }}
+    >
+      <KeyboardAvoidingView 
+        style={{ flex: 1 }}
+        behavior={Platform.OS === 'ios' ? 'height' : 'padding'}
+        >
+        <View style={styles.container}>
+          <List />
+          <StatusBar style="light" backgroundColor='transparent' translucent />
+        </View>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 }
 
