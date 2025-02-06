@@ -8,17 +8,18 @@ interface ItemProps extends TextProps {
   type: 'list' | 'list-item';
   text: string;
   onPress?: () => void;
+  checked?: boolean;
   trailingIcon?: keyof typeof FeatherIcons.glyphMap;
   trailingIconAction?: () => void;
   secondTrailingIcon?: keyof typeof FeatherIcons.glyphMap;
   secondTrailingIconAction?: () => void;
 }
 
-export function Item({ type, text, onPress, trailingIcon, secondTrailingIcon, trailingIconAction, secondTrailingIconAction }: ItemProps) {
+export function Item({ type, text, onPress, checked, trailingIcon, secondTrailingIcon, trailingIconAction, secondTrailingIconAction }: ItemProps) {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress} disabled={type === 'list-item'}>
         <View style={styles.textContainer}>
-          {type === 'list-item' && <Checkbox style={styles.checkbox} value={false} onValueChange={onPress} />}
+          {type === 'list-item' && <Checkbox style={styles.checkbox} value={checked} onValueChange={onPress} />}
           <Text style={styles.content}>{text}</Text>
         </View>
         <View style={styles.iconsContainer}>

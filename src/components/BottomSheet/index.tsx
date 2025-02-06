@@ -8,12 +8,13 @@ import { ListProps } from '../../screens/Home'
 interface BottomSheetProps extends ViewProps {
     title: string,
     buttonText: string,
-    setLists: React.Dispatch<React.SetStateAction<ListProps[]>>,
+    saveList?: (list: ListProps) => void,
     inputPlaceholder: string,
     closeAction: () => void
+    saveItem?: (item: string) => void,
 }
 
-export default function BottomSheet({ title, buttonText, setLists, inputPlaceholder, closeAction }: BottomSheetProps) {
+export default function BottomSheet({ title, buttonText, saveList, inputPlaceholder, closeAction, saveItem }: BottomSheetProps) {
   const [inputText, setInputText] = React.useState('')
 
   return (
@@ -23,10 +24,14 @@ export default function BottomSheet({ title, buttonText, setLists, inputPlacehol
         <TextInput style={styles.input} placeholder={inputPlaceholder} placeholderTextColor={'#878787'}
         onChangeText={(text) => setInputText(text)}></TextInput>
         <Button onPress={() => {
-          setLists((prevState) => [...prevState, {
-            title: inputText,
-            items: []
-          }])
+          if (saveList) {
+            saveList({
+              title: inputText,
+              items: []
+            })
+          } else if(saveItem) {
+            saveItem(inputText)
+          }
           closeAction()
         }}>{buttonText}</Button>
     </View>
