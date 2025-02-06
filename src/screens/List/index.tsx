@@ -5,11 +5,16 @@ import { Item } from '../../components/Item'
 import { FloatingButton } from '../../components/FloatingButton'
 import BottomSheet from '../../components/BottomSheet'
 import FeatherIcons from '@expo/vector-icons/Feather'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import { ListProps } from '../Home'
 
 export function List() {
     const [showBottomSheet, setShowBottomSheet] = useState(false)
     const navigation = useNavigation()
+    const params = useRoute().params as {
+        list: ListProps,
+        setLists: React.Dispatch<React.SetStateAction<ListProps[]>>
+    }
 
   return (
     <View style={{ flex: 1, width: '100%', backgroundColor: '#212029' }}>
@@ -19,7 +24,7 @@ export function List() {
             <TouchableOpacity onPress={() => {navigation.goBack()}}>
                 <FeatherIcons name="chevron-left" size={32} color="#FFFFFF" style={{marginRight: 12}}></FeatherIcons>
             </TouchableOpacity>
-            <Title>Lista de Compras</Title>
+            <Title>{params?.list.title}</Title>
         </View>
             <Item
                 text='Batata'
@@ -40,6 +45,7 @@ export function List() {
         {showBottomSheet && <BottomSheet
             buttonText='Adicionar'
             title='Novo item'
+            setLists={params.setLists}
             inputPlaceholder='Insira seu texto aqui...'
             closeAction={() => {
                 setShowBottomSheet(false)

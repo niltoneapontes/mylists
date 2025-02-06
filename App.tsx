@@ -7,7 +7,6 @@ import { Routes } from './src/routes';
 
 export default function App() {
   return (
-
       <SafeAreaView 
         style={{
           flex: 1,
@@ -16,7 +15,7 @@ export default function App() {
       >
         <KeyboardAvoidingView 
           style={{ flex: 1 }}
-          behavior={Platform.OS === 'ios' ? 'height' : 'padding'}
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
           >
             <NavigationContainer>
               <Routes />
@@ -24,6 +23,5 @@ export default function App() {
             <StatusBar style="light" backgroundColor='transparent' translucent />
         </KeyboardAvoidingView>
       </SafeAreaView>
-
   );
 }
